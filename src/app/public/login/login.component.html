@@ -39,6 +39,7 @@
 
 <div *ngIf="currentAction == 'newUser'" class="user-form">
   <app-user-form
+  (registerEmitter)="registerUser($event)"
   (backLogin)="mainScreen()" >
   </app-user-form>
 </div>

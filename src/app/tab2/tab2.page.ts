@@ -8,16 +8,75 @@ import { RankingService } from '../services/ranking.service';
 })
 export class Tab2Page {
   ranking: Array<{ name: string; daysSober: number; positionOnRanking: number }> = [];
+  orderedRankingList: any[] = [];
+  rankingList: any[] = [
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 5
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 7
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 4
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 1
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 5
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 7
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 4
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 1
+    },
+    {
+      picture: "assets/default_profile_pic.png",
+      name: "Tom Costa",
+      daysSober: 45,
+      positionOnRanking: 2
+    }
+  ];
 
   constructor(private rankingService: RankingService) {}
 
   ngOnInit() {
     this.loadRanking();
+    this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
   }
 
   loadRanking() {
     this.rankingService.getRanking().subscribe((data: any) => {
       this.ranking = data;
+      this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
     });
   }
 

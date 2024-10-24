@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://1ce8-179-209-44-63.ngrok-free.app/',
+  apiUrl: 'https://847a9325fb574d14efa80b55e9b83376.serveo.net/',
 
 };
 

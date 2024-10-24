@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
 export class RankingService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  updateSoberRanking(isSober: boolean) {
-    return this.http.post(environment.apiUrl + "ranking", {isSober});
+  updateSoberRanking(drank: boolean) {
+    return this.http.post(environment.apiUrl + "ranking", {drank});
   }
 
   incrementDays(){

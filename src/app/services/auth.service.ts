@@ -28,7 +28,7 @@ export class AuthService {
     let data: any;
 
     data = {
-      username: email.toLowerCase().trim(),
+      email: email.toLowerCase().trim(),
       password: password.trim(),
     };
 
@@ -72,7 +72,7 @@ export class AuthService {
 
   private setSession(authResult: any) {
     this.cookieService.set('token', authResult.token, 5, '/');
-    this.cookieService.set('username', authResult.username, 5, '/');
+    this.cookieService.set('email', authResult.email, 5, '/');
 
     this.loginEvent.next(true);
   }

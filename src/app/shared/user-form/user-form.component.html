@@ -1,12 +1,29 @@
 <div class="d-flex flex-column signup-wrapper">
-  <h2>Cadastrar</h2>
+  <h2 *ngIf="!isEditting">Cadastrar</h2>
+  <h2 *ngIf="isEditting">Editar</h2>
   <span class="subtitle">Informe seus dados para começar</span>
+  <div class="upload-wrapper">
+    <label for="photo-upload" class="custom-file-upload">
+      Escolher Foto
+    </label>
+
+    <div class="image-preview">
+      <img *ngIf="user.picture" [src]="user.picture" alt="Pré-visualização da Imagem">
+      <img id="img-placeholder" src="assets/default_profile_pic.png" alt="Profile picture placeholder">
+    </div>
+
+
+    <input type="file" id="photo-upload" accept="image/*" (change)="onFileSelected($event)">
+    
+ 
+  </div>
+  
   <input type="text" class="default" placeholder="Nome" [(ngModel)]="user.name">
   <input type="text" class="default" placeholder="Email" [(ngModel)]="user.email">
   <input type="password" class="default" placeholder="Senha" [(ngModel)]="user.pass">
   <input type="password" class="default" placeholder="Repetir Senha" [(ngModel)]="user.passrepeat">
 
-  <button (click)="registerEmitter.next();" class="default-btn">Cadastrar</button>
+  <button (click)="validateUserAndSend()" class="default-btn">Cadastrar</button>
 
   <small>Ja tem uma conta? <a (click)="backLogin.next();" >Fazer Login</a></small>
 </div>

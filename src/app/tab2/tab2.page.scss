@@ -1,0 +1,68 @@
+ion-header {
+    ion-toolbar {
+      ion-title {
+        /* Estilos para o título do toolbar */
+      }
+    }
+  }
+  
+  ion-content {
+    .ranking-wrapper {
+        height: calc(100% - 1rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+        overflow-y: hidden;
+        
+      .ranking-container {
+        width: 100%;
+        flex: 1;
+        overflow-y: scroll;
+    }
+        .ranking-card {
+            display: flex;
+            height: 5rem;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0e2f5c;
+            padding: 1.2rem;
+            margin-bottom: 0.8rem;
+            .left-side{
+                display: flex;
+                align-items: center;
+                img {
+                    height: 3rem;
+                    margin: 0 1rem; 
+                      }
+
+            }
+            .right-side{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+        
+  
+          .nam {
+            /* Estilos para o nome do usuário */
+          }
+  
+          .right-side {
+            /* Estilos para a seção da direita no card */
+  
+            img {
+                height: 2.7rem;
+                padding-bottom: 0.3rem
+            }
+          }
+        }
+      }
+  
+      .default-btn {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+
+      }
+    }
+  

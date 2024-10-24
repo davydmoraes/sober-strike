@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Ranking
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<div class="ranking-wrapper">
+  <div class="ranking-container">
+    <div *ngFor="let item of orderedRankingList" class="ranking-card">
+      <div class="left-side">
+        {{item.positionOnRanking }}
+        <img [src]="item.picture" alt="">
+        <div class="nam">
+          {{item.name}}
+        </div>
+      </div>
+   
+      <div class="right-side">
+        <img src="assets/default-logo.png" alt="">
+        {{item.daysSober}} dias
+      </div>
+    </div>
+  </div>
+  <button class="default-btn" id="add-friend">
+    Adicionar Amigo
+  </button>
+</div>
 </ion-content>
