@@ -19,11 +19,12 @@
   </div>
   
   <input type="text" class="default" placeholder="Nome" [(ngModel)]="user.name">
-  <input type="text" class="default" placeholder="Email" [(ngModel)]="user.email">
-  <input type="password" class="default" placeholder="Senha" [(ngModel)]="user.pass">
-  <input type="password" class="default" placeholder="Repetir Senha" [(ngModel)]="user.passrepeat">
+  <input [disabled]="isEditting"type="text" class="default" placeholder="Email" [(ngModel)]="user.email">
+  <input [disabled]="isEditting" type="password" class="default" placeholder="Senha" [(ngModel)]="user.pass">
+  <input [disabled]="isEditting" type="password" class="default" placeholder="Repetir Senha" [(ngModel)]="user.passrepeat">
 
-  <button (click)="validateUserAndSend()" class="default-btn">Cadastrar</button>
+  <button *ngIf="!isEditting" (click)="validateUserAndSend()" class="default-btn">Cadastrar</button>
+  <button *ngIf="isEditting" (click)="validateUserAndSend()" class="default-btn">Salvar</button>
 
   <small>Ja tem uma conta? <a (click)="backLogin.next();" >Fazer Login</a></small>
 </div>

@@ -19,13 +19,17 @@
       </div>
    
       <div class="right-side">
-        <img src="assets/default-logo.png" alt="">
+        <img src="assets/denied-beer-icon.png" alt="">
         {{item.daysSober}} dias
       </div>
     </div>
   </div>
-  <button class="default-btn" id="add-friend">
+  <button (click)="openModal()" class="default-btn" id="add-friend">
     Adicionar Amigo
   </button>
 </div>
 </ion-content>
+
+
+  <app-modal (isModalClosed)="modalOpen = false" *ngIf="modalOpen" [isOpen]="modalOpen"></app-modal>
+

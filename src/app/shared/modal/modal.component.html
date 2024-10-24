@@ -1,0 +1,20 @@
+<div class="modal-background" *ngIf="isOpen">
+  <div class="modal-content">
+    <ion-header>
+      <ion-toolbar>
+
+        <ion-buttons slot="end">
+          <ion-button (click)="close()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <div class="ion-content">
+      <h1 class="title">
+        Adicionar Amigo
+      </h1>
+      <input placeholder="email do amigo" type="text" class="default">
+    <button (click)="searchAndAddFriend()" class="default-btn">Encontrar e Adicionar</button>
+    
+    </div>
+  </div>
+</div>

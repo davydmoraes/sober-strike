@@ -14,7 +14,8 @@ ion-header {
         align-items: center;
         margin-top: 1rem;
         overflow-y: hidden;
-        
+        padding: 0 0.6rem;
+
       .ranking-container {
         width: 100%;
         flex: 1;
@@ -28,6 +29,7 @@ ion-header {
             background-color: #0e2f5c;
             padding: 1.2rem;
             margin-bottom: 0.8rem;
+            border-radius: 0.4rem;
             .left-side{
                 display: flex;
                 align-items: center;
@@ -65,4 +67,12 @@ ion-header {
 
       }
     }
-  
+  app-modal{
+    z-index: 1000000;
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 3rem);
+    top: 3rem;
+    left: 0;
+    background: #000000ad;
+  }

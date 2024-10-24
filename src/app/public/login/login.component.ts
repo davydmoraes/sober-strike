@@ -53,7 +53,7 @@ export class LoginComponent  implements OnInit {
 
       this.userService.updateUser(userRequestBody).subscribe(
         result => {
-          console.log("result", result);
+          this.authService.Login(user.email, user.pass);
         }
       );
     }

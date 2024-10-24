@@ -10,7 +10,7 @@ export class RankingService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   updateSoberRanking(drank: boolean) {
-    return this.http.post(environment.apiUrl + "ranking", {drank});
+    return this.http.post(environment.apiUrl + "user/ranking", {drank});
   }
 
   incrementDays(){
@@ -21,8 +21,5 @@ export class RankingService {
     return this.http.post(environment.apiUrl + "user/increment-days", {}, {headers})
   }
 
-  getRanking() {
-    return this.http.get(environment.apiUrl + "ranking");
-  }
 
 }

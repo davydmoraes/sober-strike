@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RankingService } from '../services/ranking.service';
+import { ModalComponent } from '../shared/modal/modal.component';
+import { ModalController } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tab2',
@@ -66,15 +69,25 @@ export class Tab2Page {
     }
   ];
 
-  constructor(private rankingService: RankingService) {}
+  constructor(private rankingService: RankingService,
+    private modalController: ModalController,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.loadRanking();
     this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
   }
 
+  
+  modalOpen: boolean = false;
+
+  openModal() {
+    this.modalOpen = true;
+  }
+  
   loadRanking() {
-    this.rankingService.getRanking().subscribe((data: any) => {
+    this.userService.getUserRanking().subscribe((data: any) => {
       this.ranking = data;
       this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
     });
