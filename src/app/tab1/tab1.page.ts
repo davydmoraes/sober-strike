@@ -17,20 +17,19 @@ export class Tab1Page {
 
   ngOnInit() {
     this.userService.getUserRanking().subscribe((result: any) => {
-        console.log("result", result);
         this.days_without_drinking = result.days_without_drinking;
       });
       }
 
   sober(){
-    this.rankingService.updateSoberRanking(false).subscribe(result => {
-      console.log("sóbrio!", result);
+    this.rankingService.updateSoberRanking(false).subscribe((result: any) => {
+      this.days_without_drinking = result.days_without_drinking;
     });
   }
 
   hangover(){
-    this.rankingService.updateSoberRanking(true).subscribe(result => {
-      console.log("drunk!", result);
+    this.rankingService.updateSoberRanking(true).subscribe((result: any) => {
+      this.days_without_drinking = result.days_without_drinking;
     });
   }
 }

@@ -11,12 +11,24 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   updateUser(userRequestBody: any) {
-    console.log("userrequestbody", userRequestBody);
     return this.http.post(environment.apiUrl + "auth/signup", userRequestBody);
   }
 
   getUserRanking() {
     return this.http.get(environment.apiUrl + "user/profile");
+  }
+
+  
+  getUserFriends() {
+    return this.http.get(environment.apiUrl + "friendships/list-friends");
+  }
+
+  searchUserByEmail(email: string) {
+    return this.http.get(environment.apiUrl + "user/search-user/" + email);
+  }
+
+  addNewFriend(id: number){
+      return this.http.post(environment.apiUrl + "friendships/add-friend/"+ id, {});
   }
 
 }

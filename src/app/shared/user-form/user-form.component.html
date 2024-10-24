@@ -3,28 +3,28 @@
   <h2 *ngIf="isEditting">Editar</h2>
   <span class="subtitle">Informe seus dados para começar</span>
   <div class="upload-wrapper">
-    <label for="photo-upload" class="custom-file-upload">
+    <!-- <label for="photo-upload" class="custom-file-upload">
       Escolher Foto
-    </label>
+    </label> -->
 
-    <div class="image-preview">
+    <div (click)="photoUpload.click()" class="image-preview">
       <img *ngIf="user.picture" [src]="user.picture" alt="Pré-visualização da Imagem">
       <img id="img-placeholder" src="assets/default_profile_pic.png" alt="Profile picture placeholder">
     </div>
 
 
-    <input type="file" id="photo-upload" accept="image/*" (change)="onFileSelected($event)">
+    <input #photoUpload type="file" id="photo-upload" accept="image/*" (change)="onFileSelected($event)">
     
  
   </div>
   
-  <input type="text" class="default" placeholder="Nome" [(ngModel)]="user.name">
-  <input [disabled]="isEditting"type="text" class="default" placeholder="Email" [(ngModel)]="user.email">
+  <input type="text" class="default" placeholder="Nome" [(ngModel)]="user.first_name">
+  <input [disabled]="isEditting" type="text" class="default" placeholder="Email" [(ngModel)]="user.email">
   <input [disabled]="isEditting" type="password" class="default" placeholder="Senha" [(ngModel)]="user.pass">
   <input [disabled]="isEditting" type="password" class="default" placeholder="Repetir Senha" [(ngModel)]="user.passrepeat">
 
-  <button *ngIf="!isEditting" (click)="validateUserAndSend()" class="default-btn">Cadastrar</button>
-  <button *ngIf="isEditting" (click)="validateUserAndSend()" class="default-btn">Salvar</button>
+  <button *ngIf="!isEditting" (click)="validateUserAndCreate()" class="default-btn">Cadastrar</button>
+  <button *ngIf="isEditting" (click)="validateUserAndEdit()" class="default-btn">Salvar</button>
 
-  <small>Ja tem uma conta? <a (click)="backLogin.next();" >Fazer Login</a></small>
+  <small *ngIf="!isEditting" >Ja tem uma conta? <a (click)="backLogin.next();" >Fazer Login</a></small>
 </div>

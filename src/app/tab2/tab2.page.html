@@ -9,18 +9,22 @@
 <ion-content [fullscreen]="true">
 <div class="ranking-wrapper">
   <div class="ranking-container">
-    <div *ngFor="let item of orderedRankingList" class="ranking-card">
+    <div *ngFor="let item of orderedRankingList; let i = index;" class="ranking-card">
       <div class="left-side">
-        {{item.positionOnRanking }}
-        <img [src]="item.picture" alt="">
+        {{(i+1)}}
+        <div class="profile-pic">
+          <img [src]="item.picture" alt="">
+        </div>
         <div class="nam">
-          {{item.name}}
+          {{item.first_name}}
         </div>
       </div>
    
       <div class="right-side">
-        <img src="assets/denied-beer-icon.png" alt="">
-        {{item.daysSober}} dias
+  
+          <img src="assets/denied-beer-icon.png" alt="">
+    
+        {{item.days_without_drinking}} dias
       </div>
     </div>
   </div>
@@ -31,5 +35,5 @@
 </ion-content>
 
 
-  <app-modal (isModalClosed)="modalOpen = false" *ngIf="modalOpen" [isOpen]="modalOpen"></app-modal>
+  <app-modal (isModalClosed)="closeModal()" *ngIf="modalOpen" [isOpen]="modalOpen"></app-modal>
 

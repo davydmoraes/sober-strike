@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-modal',
@@ -7,17 +8,32 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-searchAndAddFriend() {
-throw new Error('Method not implemented.');
-}
-  constructor() {}
+  constructor(
+    private userService: UserService
+  ) {}
   @Input()
   isOpen: boolean = false;
   @Output()
   isModalClosed: EventEmitter<boolean> = new EventEmitter();
 
+  email: string = "";
+
   close() {
     this.isOpen = false;
     this.isModalClosed.next(true);
   }
+  searchAndAddFriend() {
+    this.userService.searchUserByEmail(this.email).subscribe((result: any) => {
+      this.userService.addNewFriend(result.id).subscribe(
+        (response: any) => {
+          this.isOpen = false;
+          this.isModalClosed.next(true);
+        },
+        (error) => {
+          console.error('Erro ao adicionar amigo:', error);
+        }
+      );
+    });
+  }
+
 }

@@ -47,6 +47,7 @@
         input[type="file"] {
           display: none; /* Esconde o input de arquivo padrão */
         }
+
       
         .image-preview {
           margin-top: 20px;
@@ -75,5 +76,10 @@
             border-radius: 100%;
           }
         }
+      }
+
+      
+      input:disabled {
+        opacity: 0.7;
       }
       

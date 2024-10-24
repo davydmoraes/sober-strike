@@ -5,4 +5,17 @@ ion-tab-button{
         margin-bottom: 0.1rem;
         max-height: 100%;
     }
+
+    .white-svg{
+    filter:  saturate(0) brightness(5.1);
+    }
+
+    svg{
+        height: 1.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .cls-1 {
+        fill: currentColor;
+    }
 }

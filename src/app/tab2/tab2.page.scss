@@ -33,10 +33,20 @@ ion-header {
             .left-side{
                 display: flex;
                 align-items: center;
-                img {
+
+                .profile-pic{
+                  overflow: hidden;
+                  aspect-ratio: 1/1;
+                  height: 3rem;
+                  border-radius: 100%;
+                  margin: 0 1rem;
+                  img {
                     height: 3rem;
-                    margin: 0 1rem; 
+                    object-fit: cover;
                       }
+
+                }
+              
 
             }
             .right-side{

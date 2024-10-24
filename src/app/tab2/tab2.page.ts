@@ -10,73 +10,19 @@ import { UserService } from '../services/user.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  ranking: Array<{ name: string; daysSober: number; positionOnRanking: number }> = [];
-  orderedRankingList: any[] = [];
-  rankingList: any[] = [
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 5
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 7
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 4
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 1
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 5
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 7
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 4
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 1
-    },
-    {
-      picture: "assets/default_profile_pic.png",
-      name: "Tom Costa",
-      daysSober: 45,
-      positionOnRanking: 2
-    }
-  ];
-
+closeModal() {
+  this.modalOpen = false;
+  this.loadRanking();
+}
   constructor(private rankingService: RankingService,
-    private modalController: ModalController,
     private userService: UserService
   ) {}
 
+  ranking: any[] = [];
+  orderedRankingList: any[] = [];
+
   ngOnInit() {
     this.loadRanking();
-    this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
   }
 
   
@@ -87,9 +33,9 @@ export class Tab2Page {
   }
   
   loadRanking() {
-    this.userService.getUserRanking().subscribe((data: any) => {
+    this.userService.getUserFriends().subscribe((data: any) => {
       this.ranking = data;
-      this.orderedRankingList = this.rankingList.sort((a, b) => a.positionOnRanking - b.positionOnRanking);
+      this.orderedRankingList = this.ranking.sort((a, b) => b.days_without_drinking - a.days_without_drinking);
     });
   }
 

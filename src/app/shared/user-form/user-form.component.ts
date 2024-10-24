@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-form',
@@ -6,9 +7,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./user-form.component.scss'],
 })
 export class UserFormComponent  implements OnInit {
-    validateUserAndSend() {
+    validateUserAndCreate() {
 
-      if (!this.user.name || !this.user.email || !this.user.pass || !this.user.passrepeat) {
+      if (!this.user.first_name || !this.user.email || !this.user.pass || !this.user.passrepeat) {
         alert("Por favor, preencha todos os campos.");
         return;
       }
@@ -36,6 +37,10 @@ export class UserFormComponent  implements OnInit {
       this.registerEmitter.next(this.user);
     }
 
+    validateUserAndEdit() {
+      this.registerEmitter.next(this.user);
+    }
+
   @Input() isEditting: boolean = false;
  
   @Output()
@@ -48,7 +53,9 @@ export class UserFormComponent  implements OnInit {
   @Input()
   user: any = {};
 
-  constructor() { }
+  constructor(
+    private userService: UserService
+  ) { }
 
   imageUrl: string | ArrayBuffer | null = null;
 
@@ -63,5 +70,14 @@ export class UserFormComponent  implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.isEditting){
+      this.userService.getUserRanking().subscribe(
+        (response: any) => {
+          this.user = response;
+        }
+      );
+    }
+
+  }
 }

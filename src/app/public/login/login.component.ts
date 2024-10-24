@@ -36,9 +36,6 @@ export class LoginComponent  implements OnInit {
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
 
-      console.log('Email:', email);
-      console.log('Senha:', password);
-
      this.authService.Login(email, password);
 
 
@@ -48,7 +45,6 @@ export class LoginComponent  implements OnInit {
   }
 
     registerUser(user: any) {
-      console.log("user", user);
       let userRequestBody = this.createRequestBody(user);
 
       this.userService.updateUser(userRequestBody).subscribe(
@@ -60,7 +56,7 @@ export class LoginComponent  implements OnInit {
 
     createRequestBody(user: any) {
       let userRequestBody = {
-        'first_name': user.name,
+        'first_name': user.first_name,
         'email': user.email,
         'password': user.pass,
         'picture': user.picture
