@@ -1,0 +1,23 @@
+.signup-wrapper {
+  width: 100%;
+  flex: 1;
+    display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+   }
+   
+   .subtitle {
+   margin-top:1rem;
+   margin-bottom:1.7rem;
+   }
+       input {
+        margin-bottom:1rem;
+       }
+   
+       small {
+        a {
+           font-weight:bold;
+           color:#1D76F2;
+         }
+       }

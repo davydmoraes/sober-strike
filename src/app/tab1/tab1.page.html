@@ -1,0 +1,43 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-explore-container name="Tab 1 page"></app-explore-container>
+</ion-content> -->
+
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <!--<ion-title size="large">Tab 1</ion-title>-->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <div class="d-flex flex-column home-wrapper">
+    <span class="upper-text">Estou há</span>
+    <span class="number-big">0</span>
+    <span class="days">dias</span>
+
+    <img src="assets/logo.png">
+    <span class="medium-text">Sem álcool</span>
+
+    <small>Você bebeu ontem?</small>
+
+    <div class="action-btns">
+      <button (click)="sober()" class="default-btn btn-small">Não</button>
+      <button (click)="hangover()" class="default-btn btn-small">Sim</button>
+    </div>
+  </div>
+</ion-content>

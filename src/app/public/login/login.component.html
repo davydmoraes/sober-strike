@@ -1,0 +1,44 @@
+<div *ngIf="currentAction == 'mainScreen'" class="pre-login-wrapper">
+  <div class="background">
+    <div class="doodle">
+
+    </div>
+    <div class="brand">
+    <img src="/assets/logo.png" alt="">
+    </div>
+    <div class="actions">
+      <button (click)="loginScreen()" class="login default-btn">Login</button>
+      <button (click)="register()" class="cadastrar default-btn">Cadastrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- app.component.html -->
+<div *ngIf="currentAction === 'loginScreen'" class="login-wrapper">
+  <form id="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="login-container">
+      <h3>Login</h3>
+      <span class="subtext">Entre com seus dados</span>
+    </div>
+
+    <input placeholder="Seu Email" type="email" id="email" class="text" formControlName="email" />
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <small *ngIf="loginForm.get('email')?.errors?.['required']">O e-mail é obrigatório</small>
+      <small *ngIf="loginForm.get('email')?.errors?.['email']">O e-mail é inválido</small>
+    </div>
+
+    <input placeholder="Senha" type="password" id="password" class="text" formControlName="password" />
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      <small *ngIf="loginForm.get('password')?.errors?.['required']">A senha é obrigatória</small>
+    </div>
+
+    <button class="default-btn" type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
+
+
+<div *ngIf="currentAction == 'newUser'" class="user-form">
+  <app-user-form
+  (backLogin)="mainScreen()" >
+  </app-user-form>
+</div>
