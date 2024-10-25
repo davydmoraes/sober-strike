@@ -36,8 +36,6 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Metropolis:wght@400;500;600;700&display=swap');
-
 
 .default-btn{
   background-color: #0e2f5c;
@@ -54,10 +52,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
   }
-  
+  input::-moz-autofill{
+    background-color: white; 
+    color: #000;
+  }
+
+  input:-webkit-autofill {
+    background-color: white; 
+    color: #000;
+}
+
   html, body {
     font-family: 'Metropolis', sans-serif;
+    background-color: #092040;
   }
 
   .d-flex {

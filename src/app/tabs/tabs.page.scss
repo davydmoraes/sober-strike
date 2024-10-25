@@ -15,7 +15,17 @@ ion-tab-button{
         margin-bottom: 0.2rem;
     }
 
+   
+}
+
+
+::ng-deep .tab-selected {
+    color: #0e2f5c !important;
+    fill: #0e2f5c !important;
+    ion-label{
+        color: #0e2f5c !important;
+    }
     .cls-1 {
-        fill: currentColor;
+        fill: #0e2f5c !important;
     }
 }

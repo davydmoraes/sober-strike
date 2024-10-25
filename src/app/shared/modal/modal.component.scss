@@ -24,4 +24,19 @@
         width: 100%;
     }
   }
+
+  .button-native .button-solid, .close-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent !important;
+    width: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+      height: 3rem;
+      width: 2rem;
+    }
+  }
   
