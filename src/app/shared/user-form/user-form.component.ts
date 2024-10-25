@@ -7,6 +7,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-form.component.scss'],
 })
 export class UserFormComponent  implements OnInit {
+
+  @Input() isEditting: boolean = false;
+ 
+  @Output()
+  backLogin: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output()
+  registerEmitter: EventEmitter<any> = new EventEmitter<any>();
+   
+  @Output()
+  editEmitter: EventEmitter<any> = new EventEmitter<any>();
+
+  @Input()
+  user: any = {};
+
+  constructor(
+    private userService: UserService
+  ) { }
+
     validateUserAndCreate() {
 
       if (!this.user.first_name || !this.user.email || !this.user.pass || !this.user.passrepeat) {
@@ -38,24 +57,10 @@ export class UserFormComponent  implements OnInit {
     }
 
     validateUserAndEdit() {
-      this.registerEmitter.next(this.user);
+      this.editEmitter.next(this.user);
     }
 
-  @Input() isEditting: boolean = false;
- 
-  @Output()
-  backLogin: EventEmitter<void> = new EventEmitter<void>();
 
-   
-  @Output()
-  registerEmitter: EventEmitter<any> = new EventEmitter<any>();
-
-  @Input()
-  user: any = {};
-
-  constructor(
-    private userService: UserService
-  ) { }
 
   imageUrl: string | ArrayBuffer | null = null;
 

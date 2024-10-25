@@ -47,7 +47,7 @@ export class LoginComponent  implements OnInit {
     registerUser(user: any) {
       let userRequestBody = this.createRequestBody(user);
 
-      this.userService.updateUser(userRequestBody).subscribe(
+      this.userService.createUser(userRequestBody).subscribe(
         result => {
           this.authService.Login(user.email, user.pass);
         }

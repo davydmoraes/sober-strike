@@ -10,14 +10,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  updateUser(userRequestBody: any) {
+  createUser(userRequestBody: any) {
     return this.http.post(environment.apiUrl + "auth/signup", userRequestBody);
+  }
+
+  updateUser(userRequestBody: any) {
+    return this.http.put(environment.apiUrl + "user/update-profile", {first_name: userRequestBody.first_name, picture: userRequestBody.picture});
   }
 
   getUserRanking() {
     return this.http.get(environment.apiUrl + "user/profile");
   }
-
   
   getUserFriends() {
     return this.http.get(environment.apiUrl + "friendships/list-friends");

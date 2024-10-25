@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  constructor(
+    private userService: UserService
+  ) {}
 
-  constructor() {}
+  editUser(user: any) {
+    this.userService.updateUser(user).subscribe();
+    }
 
 }
